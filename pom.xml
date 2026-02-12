@@ -21,6 +21,7 @@
         <graal.version>24.2.2</graal.version>
         <eclipselink.version>4.0.9</eclipselink.version>
         <truth.version>1.4.5</truth.version>
+        <birt.version>4.22.0</birt.version>
     </properties>
 
     <dependencies>
@@ -218,7 +219,26 @@
             <artifactId>truth</artifactId>            
             <version>${truth.version}</version>
             <scope>compile</scope>            
-	</dependency>            
+	</dependency>
+    <dependency>
+        <groupId>org.eclipse.birt</groupId>
+        <artifactId>org.eclipse.birt.report.engine</artifactId>
+        <version>${birt.version}</version>
+        <exclusions>
+            <exclusion>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
     </dependencies>
 
     <build>
